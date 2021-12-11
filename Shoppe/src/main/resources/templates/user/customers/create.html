@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/customercreate.css}" >
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="border" id="border">
+        <div class="logo"></div>
+        <span th:if="@{mess != null}">
+             <small th:text="${mess}"></small>    
+        </span>
+        <div class="content" id="name">Tạo tài khoản</div>
+        <form id="form" th:action="@{/customer/create}" method="post" th:object="${customer}">
+            <div class="form-group">
+                <input type="hidden" placeholder="Name">
+            </div>
+            <div class="form-group">
+                <input type="text" id="Name" class="input name" th:field="*{name}" placeholder="Name">
+                <span class="form-message"></span>
+            </div>
+            <div class="form-group">
+                <input type="text" id="Email" class="input name" th:field="*{email}" placeholder="Email">
+                <span class="form-message"></span>
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" class="input name" th:field="*{Password}" placeholder="password">
+                <span class="form-message"></span>
+            </div>
+            <div class="form-group">
+                <input type="password" id="confirm" class="input name" placeholder="password confirm">
+                <span class="form-message"></span>
+            </div>
+            <div class="form-group">
+                <input type="number" id="phone" class="input name" th:field="*{phone}" placeholder="phone">
+                <span class="form-message"></span>
+            </div>
+            <div class="form-group">
+                <input type="date" id="date" class="input name" th:field="*{date}" placeholder="birth">
+                <span class="form-message"></span>
+            </div>
+            <div class="form-group">
+                <input type="number" id="status" class="input name" th:field="*{status}" placeholder="status">
+                <span class="form-message"></span>
+            </div>
+            <div><button class="but">Tạo</button></div>
+        </form>
+        <script th:src="@{/js/validate.js}"></script>
+        <script>
+            validator({
+                form: 'form',
+                rules: [
+                    validator.isRequired('Name','Nhập đúng tên'),
+                    validator.isEmail('Email'),
+                    validator.isPass('password',6),
+                    validator.check('confirm',function(){
+                        return document.getElementById('password').value
+                    },'Nhập đúng mật khẩu'),
+                    validator.isPhoneNunber('phone','Nhập đúng SĐT')
+                ]
+            });
+        </script>
+    </div>
+</body>
+
+</html>

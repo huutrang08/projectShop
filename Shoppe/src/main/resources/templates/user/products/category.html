@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/homelogged.css}" />
+  </head>
+  <body>
+    <div>
+      <header class="header">
+        <a href="" class="logo"><i class="fas fa-capsules"></i>G8-Shop</a>
+        <nav class="navbar">
+          <a class="a" href="/user/homelogged">Trang chủ</a>
+          <div class="a a1" href="">
+            Sản phẩm
+            <div class="hover">
+              <a class="link" href="">Dụng Cụ Leo Núi</a>
+              <a class="link" href="">Trang Bị Nhảy Dù</a>
+              <a class="link" href="">Trang Bị Thể Thao Dưới Nước</a>
+              <a class="link" href="">Dụng Cụ Thể Thao Đạp Xe</a>
+            </div>
+          </div>
+          <div class="a a1" href=""> Thông tin
+          </div>
+          <div href="" class="a a1">Tài khoản
+            <div class="hover" style="width: 200px; height: auto; padding-bottom: 2rem;">
+              <a class="linka" th:href="@{/user/profile}">Thông tin tài khoản</a>
+              <a th:href="@{/users/login}" class="linka">Đăng nhập</a>
+              <a class="linka" th:href="@{/users/logout}">Đăng xuất</a>
+            </div>
+          </div>
+        </nav>
+        <div class="icon" id="icon" style="display: flex">
+          <div id="menu-btn" class="icons fas fa-bars"></div>
+          <a th:href="@{/cart/list}" > <i class="icons fas fa-shopping-cart"></i> </a>
+          <div id="search" class="icons fas fa-search"></div>
+          <form action="" id="form" style="display: flex; position: relative; bottom: 0.5rem;"></form>
+        </div>
+      </header>
+    </div>
+    <h1 style="text-align: center;">Danh sách sản phẩm</h1>
+    <section class="product">
+      <div class="box-product" th:each="item : ${products}">
+        <div class="boxx">
+          <img  th:src="${item.image!=null ?'/user/images/'+ item.image :'images/noimage.jpg'}" alt="" />
+          <div class="inside">
+            <h3 th:text="${item.name}"></h3>
+            <div style="display: flex; margin-top: 1.5rem; font-size: 1.3rem;">
+              <label for="">Giá Thành: </label>
+            <p style="font-size: 1.5rem;" th:text="${item.unitPrice}"></p>
+
+            </div>
+            <div style="display: flex; margin-top: 1.5rem; font-size: 1.3rem;">
+                <label for="">Số lượng:</label>
+              <p th:text="${item.quantity}"></p>
+            </div>
+            <a th:href="@{'/cart/add/'+ ${item.productId}}" style="color: red; display: block; margin-top: 1rem;">Thêm vào giỏ hàng <i class="fas fa-plus"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="footer">
+        <div class="box-container-footer" style="justify-content: flex-end;">
+            <div class="box-footer">
+                <h3 class="h3-footer">Liên hệ</h3>
+                <a href="" class="a-footer"> <i style="margin-right: 1rem;"  class="fas fa-phone"></i>0329022414</a>
+                <a href="" class="a-footer"><i class="fas fa-address-book" style="margin-right: 1rem;"></i>Hai Duong</a>
+            </div>
+            <div class="box-footer">
+                <h3 class="h3-footer">Follow me</h3>
+                <a href="" class="a-footer"> <i class="fab fa-facebook-f"></i>facebook</a>
+                <a href="" class="a-footer"> <i class="fab fa-instagram"></i>instagram</a>
+            </div>
+        </div>
+      <div class="credit">created by <span>Trang</span> | all rights reserved! </div>
+    </section>
+    <script th:src="@{/js/index.js}"></script>
+  </body>
+</html>

@@ -1,0 +1,111 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{admin/dashboard.html}">
+
+<head>
+
+</head>
+
+<body>
+  <section class="col-12" layout:fragment="content">
+    <form action="/admin/products/saveOrupdate" method="post" id="form" enctype="multipart/form-data"
+      th:object="${product}">
+      <div class="card">
+        <div class="card-header">
+          <h2 th:text="${product.isEdit?'Update Product':'ADD new Product'}"></h2>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-7">
+              <input type="hidden" th:field="*{isEdit}">
+              <div class="form-group" th:if="${product.isEdit}">
+                <label for="productId">ID sản phẩm</label>
+                <input type="text" class="form-control" name="productId" id="productId" th:field="*{productId}"
+                  aria-describedby="productHId" placeholder="productid">
+                <small id="productHId" class="form-text text-muted"></small>
+              </div>
+              <div class="form-group">
+                <label for="name">Tên sản phẩm</label>
+                <input type="text" class="form-control" name="name" id="name" th:field="*{name}"
+                  aria-describedby="NameHId" placeholder="name">
+                <small id="NameHId" class="form-text text-muted"></small>
+              </div>
+              <div class="form-group">
+                <label for="quantity">Số lượng</label>
+                <input type="text" class="form-control" name="quantity" id="quantity" aria-describedby="quantityHId"
+                  th:field="*{quantity}" placeholder="quantity">
+                <small id="quantityHId" class="form-text text-muted"></small>
+              </div>
+              <div class="input-group form-group">
+                <span class="input-group-text">Giá thành</span>
+                <input type="number" name="unitPrice" id="unitPrice" class="form-control" placeholder="unitPrice"
+                  th:field="*{unitPrice}">
+                <span class="input-group-text">VND</span>
+              </div>
+              
+              <div class="form-group">
+                <label for="categoryId">Thể loại</label>
+                <select class="form-control" th:field="*{categotyId}" name="categoryId" id="categoryId">
+                  <option th:each="list,index : ${categories}" th:value="${list.categotyId}" th:text="${list.name}"
+                    th:selected="${list.categotyId == product.categotyId}">Tên thể loại</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-3">
+              <script>
+                function choose(fileInput) {
+                  if (fileInput.files && fileInput.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                      $('#image').attr('src', e.target.result);
+                    }
+                    reader.readAsDataURL(fileInput.files[0]);
+                  }
+                }
+              </script>
+              <img id="image" th:src="${product.image!=null ?'/admin/products/images/'+ product.image :'images/noimage.jpg'}"
+               src="./images/gulogo-6.jpg" width="90%"
+                class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="">
+              <div class="form-group">
+                <label for="image">Ảnh</label>
+                <input type="file" onchange="choose(this)" class="form-control-file" name="imageFile" id="image"
+                  placeholder="image" aria-describedby="imageHid">
+                <small id="imageHid" class="form-text text-muted"></small>
+              </div>
+              <div class="input-group form-group">
+                <span class="input-group-text">Discount</span>
+                <input type="number" name="discount" id="discount" class="form-control" placeholder="discount"
+                  th:field="*{discount}">
+                <span class="input-group-text">%</span>
+              </div>
+              <div class="form-group">
+                <label for="status">Trạng thái</label>
+                <select class="form-control" name="status" id="status" th:field="*{status}">
+                  <option value="0">Còn hàng</option>
+                  <option value="1">Hết hàng</option>
+                  <option value="2">Ngừng kinh doanh</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="description">Mô tả</label>
+                <textarea class="form-control" name="description" id="description" rows="5"
+                  th:field="*{description}"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer text-muted">
+          <a th:href="@{/admin/products/add}" class="btn btn-success">Mới</a>
+          <button th:text="${product.isEdit?'Update':'Save'}" class="btn btn-primary"></button>
+          <a th:if="@{product.isEdit}" th:href="@{'/admin/products/delete'+${product.productId}}" class="btn btn-danger float-right">Xóa</a>
+        </div>
+
+    </form>
+  </section>
+</body>
+
+</html>

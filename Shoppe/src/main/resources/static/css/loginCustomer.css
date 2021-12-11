@@ -1,0 +1,75 @@
+body{
+    background-image: url(https://hoaidoan.vn/wp-content/uploads/2021/03/background-dep-5.png);
+    background-size: 100%;
+}
+.border{
+    width: 448px;
+    height: 503px;
+    border: solid rgb(199, 204, 204) 1px;
+    background-image: linear-gradient(0,rgba(0,0,0,0.5),rgba(255,255,255,0.5));
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: relative;
+    left: 500px;
+    border-radius: 10px;
+}
+.logo{
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    margin-left: 30px;
+    background-image: url(https://cdn.pixabay.com/photo/2015/12/11/11/43/google-1088004_1280.png);
+    background-size: 100%;
+}
+.content{
+    margin: 10px;
+    color: rgb(0, 139, 109);
+    margin-left: 30px;
+    margin-top: 30px;
+    font-size: 30px;
+    font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif;
+}
+.name,.password{
+    height: 30px;
+    margin: 30px;
+    width: 400px;
+    border: solid 1px;
+    border-radius: 5px;
+    background-color: beige;
+}
+.but{
+    position: relative;
+    left: 30px;
+    width: 80px;
+    height: 30px;
+    top: 30px;
+    border-radius: 5px;
+    border: solid 1px;
+}
+.form-message{
+    color: rgb(3, 10, 0);
+    margin-left: 30px;
+}
+button+button{
+margin-left: 20px;
+}
+.boder-but{
+    display: flex;
+    margin-left: 30px;
+}
+.link-cre{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 30px;
+    width: 80px;
+    height: 28px;
+    margin-left: 20px;
+    background-color: antiquewhite;
+    top: 30px;
+    font-family: 'Google Sans','Noto Sans Myanmar UI',arial,sans-serif;
+    border-radius: 5px;
+    border: solid 1px;
+    text-decoration: none;
+}

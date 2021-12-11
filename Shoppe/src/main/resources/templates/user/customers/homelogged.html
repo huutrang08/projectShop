@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" type="text/css" th:href="@{/css/homelogged.css}" />
+  <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css}"
+    integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Document</title>
+</head>
+
+<body>
+  <div>
+    <header class="header">
+      <a href="" class="logo"><i class="fas fa-capsules"></i>G8-Shop</a>
+      <nav class="navbar">
+        <a class="a" href="/user/homelogged">Trang chủ</a>
+        <div class="a a1" href="">
+          Sản phẩm
+          <div class="hover">
+            <a class="link" href="">Dụng Cụ Leo Núi</a>
+            <a class="link" href="">Trang Bị Nhảy Dù</a>
+            <a class="link" href="">Trang Bị Thể Thao Dưới Nước</a>
+            <a class="link" href="">Dụng Cụ Thể Thao Đạp Xe</a>
+          </div>
+        </div>
+        <div class="a a1" href=""> Thông tin
+        </div>
+        <div href="" class="a a1">Tài khoản
+          <div class="hover" style="width: 200px; height: auto; padding-bottom: 2rem;">
+            <a class="linka" th:href="@{/user/profile}">Thông tin tài khoản</a>
+            <a th:href="@{/users/login}" class="linka">Đăng nhập</a>
+            <a class="linka" th:href="@{/users/logout}">Đăng xuất</a>
+          </div>
+        </div>
+      </nav>
+      <div class="icon" id="icon" style="display: flex">
+        <div id="menu-btn" class="icons fas fa-bars"></div>
+        <a th:href="@{/cart/list}" > <i class="icons fas fa-shopping-cart"></i> </a>
+        <div id="search" class="icons fas fa-search"></div>
+        <form action="" id="form" style="display: flex; position: relative; bottom: 0.5rem;"></form>
+      </div>
+    </header>
+  </div>
+
+  <div class="swiper home">
+    <div class="swiper-wrapper">
+      <div class="container swiper-slide" th:style="'background: url(/images/home-bg-2.jpg) no-repeat;'">
+        <div class="content" style="
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+              margin-top: 20%;
+              margin-left: 15%;
+            ">
+          <h2 class="conten" style="font-size: 2rem;">Trải nghiệm cuộc sống</h2>
+          <h3>Cuộc sống là những chuyến đi hãy cứ hết mình vì đam mê...</h3>
+          <button style="background: none">Xem thêm...</button>
+        </div>
+      </div>
+      <div class="container swiper-slide" th:style="'background: url(/images/home-bg-3.jpg) no-repeat;'">
+        <div class="content" style="
+              display: flex;
+              flex-direction: column;
+              align-items: flex-end;
+              margin-top: 20%;
+              margin-right: 15%;
+            ">
+          <h2 class="conten">Thiên nhiên</h2>
+          <h3>Thiên nhiên cuộc sống muôn màu có biết bao cảnh đẹp hùng vĩ</h3>
+          <button style="background: none">Xem thêm...</button>
+        </div>
+      </div>
+    </div>
+    <a id="prev" class="prev">&#10094;</a>
+    <a id="next" class="next">&#10095;</a>
+  </div>
+
+  <div class="category">
+    <h1 class="heading">Danh mục sản phẩm</h1>
+    <div class="box-container">
+      <div class="box">
+        <img th:src="@{/images/category-1.jpg}" alt="" />
+        <div class="box-content" style="position: relative">
+          <a href="" class="h3">Dụng Cụ Leo Núi</a>
+          <p class="p">
+            Leo núi là một bộ môn hoạt động không kém phần thư giãn <br />
+            khi mang đến cho người chơi một trải nghiệm cộng đồng đầy thú vị.
+          </p>
+          <a href="" style="position: absolute; right: 0px">Xem thêm...</a>
+        </div>
+      </div>
+      <div class="box2">
+        <img th:src="@{/images/a5_82.png}" alt="" />
+        <div class="box-content-2">
+          <a href="" class="h3">Trang Bị Nhảy Dù</a>
+          <p class="p">
+            Nhảy dù là những bộ môn thể thao có tính nguy hiểm cao. <br />
+            Các môn thể thao nhảy dù bắt đầu nổi lên vào thập niên 1990 khi nó
+            được các công ty
+          </p>
+          <a href="">xem thêm...</a>
+        </div>
+      </div>
+      <div class="box">
+        <img th:src="@{/images/category-3.jpg}" alt="" />
+        <div class="box-content" style="position: relative">
+          <a href="" class="h3">Trang Bị Thể Thao Dưới Nước</a>
+          <p class="p">
+            Ván lướt có mái chèo đuợc coi là nguồn gốc của môn lướt sóng hiện
+            đại, <br />
+            nay quay trở lại với một diện mạo mới. Tuy khá giống với các loại
+            thuyền <br />
+            chèo, thuyền bơm hơi và kayak nhưng ván lướt sóng có mái chèo nhẹ
+            hơn
+          </p>
+          <a href="" style="position: absolute; right: 0px">Xem thêm...</a>
+        </div>
+      </div>
+      <div class="box2">
+        <img th:src="@{/images/xedap.jpg}" alt="" />
+        <div class="box-content-2">
+          <a href="" class="h3">Dụng Cụ Thể Thao Đạp Xe</a>
+          <p class="p">
+            Thói quen đạp xe đều đặn ít nhất 30 phút mỗi ngày sẽ giúp giảm cân <br>
+            và giữ dáng. Chúng ta có thể đạt được nhiều lợi ích sức khỏe thông <br>
+            qua đạp xe hàng ngày, chẳng hạn như rèn luyện sức khỏe tim mạch, <br>
+            cải thiện sức khỏe xương khớp và cải thiện sức mạnh cũng như độ <br>
+            săn chắc của cơ bắp.
+          </p>
+          <a href="">xem thêm...</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="footer">
+    <div class="box-container-footer">
+      <div class="box-footer">
+        <h3 class="h3-footer">Liên hệ</h3>
+        <a href="" class="a-footer">
+          <i style="margin-right: 1rem" class="fas fa-phone"></i>0329022414</a>
+        <a href="" class="a-footer"><i class="fas fa-address-book" style="margin-right: 1rem"></i>Hai
+          Duong</a>
+      </div>
+      <div class="box-footer">
+        <h3 class="h3-footer">Follow me</h3>
+        <a th:href="@{https://www.facebook.com/}" class="a-footer">
+          <i class="fab fa-facebook-f"></i>facebook</a>
+        <a th:href="@{https://www.instagram.com/giang_xino/}" class="a-footer">
+          <i class="fab fa-instagram"></i>instagram</a>
+      </div>
+    </div>
+    <div class="credit">
+      created by <span>Trang</span> | all rights reserved!
+    </div>
+  </section>
+  <script th:src="@{/js/index.js}"></script>
+</body>
+
+</html>

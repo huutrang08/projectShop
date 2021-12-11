@@ -1,0 +1,41 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorate="~{admin/dashboard.html}"
+>
+
+<head>
+
+</head>
+
+<body>
+  <section class="col-10" layout:fragment="content">
+    <form th:action="@{/admin/accs/saveOrupdate}" method="post" th:object="${Acc}">
+      <div class="card">
+        <div class="card-header">
+          Tạo tài khoản
+        </div>
+        <div class="card-body">
+          <div class="form-group">
+            <label for="username">Tên đăng nhập</label>
+            <input type="text" class="form-control" th:field="*{username}"
+             name="username" id="username" aria-describedby="Username" placeholder="username">
+            <small id="UsenameHid" class="form-text text-muted username"></small>
+          </div>
+          <div class="form-group">
+            <label for="password">Mật khẩu</label>
+            <input type="password" class="form-control" th:field="*{password}"
+             name="password" id="password" aria-describedby="password" placeholder="password">
+            <small id="passwordHid" class="form-text text-muted"></small>
+          </div>
+        </div>
+        <div class="card-footer text-muted">
+          <button class="btn btn-primary"> <i class="fas fa-save"></i>Lưu
+          </button>
+
+        </div>
+      </div>
+    </form>
+  </section>
+</body>
+
+</html>

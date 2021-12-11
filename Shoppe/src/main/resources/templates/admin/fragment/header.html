@@ -1,0 +1,34 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+
+</head>
+<body>
+    <div th:fragment="header">
+        <div class="app">
+            <header class="header">
+                <div class="gird">
+                    <nav class="header_navbar">
+                        <ul class="header_navbar-list">
+                            <li style="font-size: 1.2rem;"  class="header_navbar-item"><span class="not">Kết nối</span>
+                                <a  class="icon-link"><i class="icon fab fa-facebook-square"></i></a>
+                                <a  class="icon-link"><i class="icon fab fa-instagram"></i></a>
+                            </li>
+                        </ul>
+        
+                        <ul class="header_navbar-list">
+                            <li class="header_navbar-item">
+                                <a href="" class="icon-link"><i class="icon far fa-bell"></i></a>
+                                <a href=""  class="item-link">Thông báo</a>
+                            </li>
+                            <li class="header_navbar-item">
+                                <a href="" class="icon-link"><i class="icon far fa-question-circle"></i></a>
+                                <a href="" class="item-link">Trợ giúp</a>
+                            </li>
+                            <li class="header_navbar-item strong u"> <a th:href="@{/logout}">Đăng xuất</a> </li>
+                        </ul>
+                    </nav>   
+                </div>
+            </header>
+    </div>
+</body>
+</html>
